@@ -18,7 +18,7 @@ export RCLONE_S3_ENDPOINT=${MINIO_ENDPOINT}
 rclone config create remote s3 > /dev/null 2>&1
 
 # upload files to GCS
-rclone sync ${DOCS_OUTPUT_DIRECTORY} remote:${MINIO_BUCKET}${MINIO_PREFIX} > /dev/null 2>&1
+rclone sync ${DOCS_OUTPUT_DIRECTORY} remote:${MINIO_BUCKET}/${MINIO_PREFIX} > /dev/null 2>&1
 
 # list files for logging purposes
 echo "Uploaded files:"

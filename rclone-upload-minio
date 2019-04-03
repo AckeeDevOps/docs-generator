@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Check required variables for Minio
+[ -z "$MINIO_ACCESS_KEY" ] && { echo "MINIO_ACCESS_KEY is required"; exit 1; }
+[ -z "$MINIO_SECRET_KEY" ] && { echo "MINIO_SECRET_KEY is required"; exit 1; }
+[ -z "$MINIO_ENDPOINT" ] && { echo "MINIO_ENDPOINT is required"; exit 1; }
+[ -z "$MINIO_BUCKET" ] && { echo "MINIO_BUCKET is required"; exit 1; }
+[ -z "$MINIO_PREFIX" ] && { echo "MINIO_PREFIX is required"; exit 1; }
+[ -z "$DOCS_OUTPUT_DIRECTORY" ] && { echo "DOCS_OUTPUT_DIRECTORY is required"; exit 1; }
+
+# set Rclone variables
+export RCLONE_S3_ACCESS_KEY_ID=${MINIO_ACCESS_KEY}
+export RCLONE_S3_SECRET_ACCESS_KEY=${MINIO_SECRET_KEY}
+export RCLONE_S3_REGION=${MINIO_REGION} # optional
+export RCLONE_S3_ENDPOINT=${MINIO_ENDPOINT}
+
+# create Rclone config
+rclone config create remote s3 > /dev/null 2>&1
+
+# upload files to GCS
+rclone sync ${DOCS_OUTPUT_DIRECTORY} remote:${MINIO_BUCKET}${MINIO_PREFIX} > /dev/null 2>&1
+
+# list files for logging purposes
+echo "Uploaded files:"
+rclone ls remote:${MINIO_BUKET}${MINIO_PREFIX}

@@ -11,6 +11,7 @@ RUN echo "installing Debian packages ..." && \
   npm install -g apib2swagger > /dev/null 2>&1 && \
   npm install -g git+https://git@github.com/vlasy/node-swagger-gen.git#aad0408 > /dev/null 2>&1 && \
   npm install -g html-inline > /dev/null 2>&1 && \
+  npm install -g @ackee/be-cli > /dev/null 2>&1 && \
   echo "installing Rclone ..." && \
   wget https://github.com/ncw/rclone/releases/download/v1.46/rclone-v1.46-linux-amd64.zip -O rclone.zip > /dev/null 2>&1 && \
   mkdir -p rclone && \

@@ -15,8 +15,5 @@ RUN echo "installing Debian packages ..." && \
   mkdir -p rclone && \
   unzip -j -d rclone rclone.zip > /dev/null 2>&1 && \
   mv rclone/rclone /usr/local/bin && \
-  rm -rf rclone rclone.zip && \
-  echo "making upload scripts executable ..." && \
-  chmod +x /usr/local/bin/rclone-upload-gcs && \
-  chmod +x /usr/local/bin/rclone-upload-minio
+  rm -rf rclone rclone.zip
   

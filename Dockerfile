@@ -1,7 +1,5 @@
 FROM node:11.13.0-stretch
 
-COPY rclone-upload-gcs rclone-upload-minio /usr/local/bin/
-
 RUN echo "installing Debian packages ..." && \
   apt-get update > /dev/null 2>&1 && \
   apt-get install unzip > /dev/null 2>&1 && \

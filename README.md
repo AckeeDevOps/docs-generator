@@ -1,5 +1,8 @@
 # Ackee API documentation renderer / uploader
 
+[![](https://images.microbadger.com/badges/version/ackee/docs-generator:v1.1.1.svg)](https://microbadger.com/images/ackee/docs-generator:v1.1.1 "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/ackee/docs-generator:v1.1.1.svg)](https://microbadger.com/images/ackee/docs-generator:v1.1.1 "Get your own image badge on microbadger.com")
+
 This Docker image contains a few tools we use for the rendering of API blueprints 
 and subsequent uploading to object storage. 
 

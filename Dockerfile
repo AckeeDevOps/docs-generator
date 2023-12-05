@@ -1,4 +1,4 @@
-FROM node:11.13.0-stretch
+FROM node:16.15.1-stretch
 
 RUN echo "installing Debian packages ..." && \
   apt-get update > /dev/null 2>&1 && \
